@@ -14,21 +14,18 @@ const ResetPassword = () => {
     fetch("http://localhost:3000/users/password",{
         method: "PATCH",
         headers: {"Content-Type":'application/json', "Accept":"application/json"},
-        body: {
+        body: JSON.stringify({
           user: {
               reset_password_token: token,
               password: data,
               password_confirmation: data2
           }
-      }
+      })
     })
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-      .catch((error) => {
-        alert("erreur");
-        console.log(error.message);
-      });
-  };
+    .then((response) => console.log("BRAVO LOL"))
+    .catch((error) => console.log(error.message))
+  
+  }
 
   return (
     <div>
